@@ -12,11 +12,10 @@ const Home = () => {
 
   const fetchBlogs = async () => {
     try {
-      const apiUrl = `http://localhost:5000/api/blogs` // Temporary fix
+      const apiUrl = `${import.meta.env.VITE_API_URL}/blogs` // Temporary fix
       console.log('Fetching from:', apiUrl) // Debug line
       const response = await fetch(apiUrl)
-      console.log('Response status:', response.status) // Debug line
-      console.log('Response headers:', response.headers.get('content-type')) // Debug line
+      
       
       if (!response.ok) {
         throw new Error('Failed to fetch blogs')
